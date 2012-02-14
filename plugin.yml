@@ -1,0 +1,17 @@
+name: Vanish
+main: com.connor.vanish.Vanish
+version: 1.0
+commands:
+    vanish:
+        description: Vanish
+        usage: /vanish, /vanish list
+permissions:
+    vanish.vanish:
+        description: Allows a player to vanish
+        default: op
+    vanish.list:
+        description: Allows a player to list vanished players
+        default: op
+    vanish.seeall:
+        description: Allows a player to see all vanished players
+        default: op
