@@ -4,7 +4,7 @@ version: 1.0
 commands:
     vanish:
         description: Vanish
-        usage: /vanish, /vanish list
+        usage: /vanish, /vanish list, /vanish <playername>
 permissions:
     vanish.vanish:
         description: Allows a player to vanish
@@ -14,4 +14,7 @@ permissions:
         default: op
     vanish.seeall:
         description: Allows a player to see all vanished players
+        default: op
+    vanish.vanishother:
+        description: Allows a player to set other players as vanished
         default: op

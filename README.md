@@ -11,15 +11,16 @@ It also has a faux logout/login routine that makes it look like a vanished playe
 Setting up Vanish
 -----------------
 
-Minimal setup. The three permissions are as follows:
+Minimal setup. The four permissions are as follows:
 
-	vanish.vanish  | Allows a player to vanish
-	vanish.list    | Allows a player to list vanished players
-	vanish.seeall  | Allows a player to see vanished players
+	vanish.vanish      | Allows a player to vanish
+	vanish.list        | Allows a player to list vanished players
+	vanish.seeall      | Allows a player to see vanished players
+	vanish.vanishother | Allows a player to set another player as vanished
 
 All of the permissions are already assigned to OPs
 
 Usage
 -----
 
-To vanish, type `/vanish`. To see vanished players, type `/vanish list`.
+To vanish, type `/vanish`. To see vanished players, type `/vanish list`. To make another player invisible, type `/vanish <playername>`.

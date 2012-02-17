@@ -45,6 +45,23 @@ public class Vanish extends JavaPlugin {
                 
                     player.sendMessage(ChatColor.GRAY + "Hidden players: " + builder.toString());
                 }
+            } else if (player.hasPermission("vanish.vanishother")) {
+                Player target = getServer().getPlayer(args[0]);
+                if (target == null) target = getServer().getPlayerExact(args[0]);
+                if (target == null) { 
+                    player.sendMessage(ChatColor.GRAY + "Player doesn't exist or too many results");
+                    return true;
+                }
+                
+                if (!isVanished(target)) {
+                    vanishPlayer(target);
+                    target.sendMessage(ChatColor.GRAY + "You have vanished");
+                    player.sendMessage(ChatColor.GRAY + target.getName() + " is now invisible");
+                } else {
+                    showPlayer(target);
+                    target.sendMessage(ChatColor.GRAY + "You are no longer invisible");
+                    player.sendMessage(ChatColor.GRAY + target.getName() + " is no longer invisible");
+                }
             }
         } else if (player.hasPermission("vanish.vanish")) {
             if (!isVanished(player)) {
