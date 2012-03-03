@@ -44,7 +44,10 @@ public class Vanish extends JavaPlugin {
                     }
                 
                     player.sendMessage(ChatColor.GRAY + "Hidden players: " + builder.toString());
+                } else {
+                    player.sendMessage(ChatColor.GRAY + "There are no hidden players");
                 }
+                return true;
             } else if (player.hasPermission("vanish.vanishother")) {
                 Player target = getServer().getPlayer(args[0]);
                 if (target == null) target = getServer().getPlayerExact(args[0]);
@@ -57,10 +60,14 @@ public class Vanish extends JavaPlugin {
                     vanishPlayer(target);
                     target.sendMessage(ChatColor.GRAY + "You have vanished");
                     player.sendMessage(ChatColor.GRAY + target.getName() + " is now invisible");
+                    getServer().broadcastMessage(ChatColor.YELLOW + target.getName() + " left the game.");
+                    return true;
                 } else {
                     showPlayer(target);
                     target.sendMessage(ChatColor.GRAY + "You are no longer invisible");
                     player.sendMessage(ChatColor.GRAY + target.getName() + " is no longer invisible");
+                    getServer().broadcastMessage(ChatColor.YELLOW + target.getName() + " joined the game.");
+                    return true;
                 }
             }
         } else if (player.hasPermission("vanish.vanish")) {
@@ -68,12 +75,13 @@ public class Vanish extends JavaPlugin {
                 vanishPlayer(player);
                 player.sendMessage(ChatColor.GRAY + "You have vanished");
                 getServer().broadcastMessage(ChatColor.YELLOW + player.getName() + " left the game.");
+                return true;
             } else {
                 showPlayer(player);
                 player.sendMessage(ChatColor.GRAY + "You are visible again");
                 getServer().broadcastMessage(ChatColor.YELLOW + player.getName() + " joined the game.");
+                return true;
             }
-            return true;
         }
         return false;
     }
