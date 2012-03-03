@@ -6,15 +6,21 @@ commands:
         description: Vanish
         usage: /vanish, /vanish list, /vanish <playername>
 permissions:
+    vanish.*:
+        description: Enables all vanish permission nodes
+        default: op
+        children:
+            vanish.vanish: true
+            vanish.list: true
+            vanish.seeall: true
+            vanish.vanishother: true
     vanish.vanish:
         description: Allows a player to vanish
-        default: op
     vanish.list:
         description: Allows a player to list vanished players
-        default: op
     vanish.seeall:
         description: Allows a player to see all vanished players
-        default: op
     vanish.vanishother:
         description: Allows a player to set other players as vanished
-        default: op
+        children:
+            vanish.vanish: true
