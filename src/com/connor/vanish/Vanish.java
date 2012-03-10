@@ -20,7 +20,13 @@ public class Vanish extends JavaPlugin {
     }
 
     public void onDisable() {
-        log.info("Vanish disabled");
+        for (Player p : getServer().getOnlinePlayers()) {
+            if (isVanished(p)) {
+                showPlayer(p);
+            }
+        }
+        hiddenUsernames.clear();
+        log.info("All players are visible again");
     }
     
 
