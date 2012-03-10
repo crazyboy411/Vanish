@@ -54,6 +54,8 @@ public class Vanish extends JavaPlugin {
                     player.sendMessage(ChatColor.GRAY + "There are no hidden players");
                 }
                 return true;
+            } else if (args[0].equalsIgnoreCase("help") || args[0].equalsIgnoreCase("?")) {
+                return false;
             } else if (player.hasPermission("vanish.vanishother")) {
                 Player target = getServer().getPlayer(args[0]);
                 if (target == null) target = getServer().getPlayerExact(args[0]);
