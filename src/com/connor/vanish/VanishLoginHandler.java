@@ -22,7 +22,7 @@ public class VanishLoginHandler implements Listener {
         }
         if (player.hasPermission("vanish.seeall")) return;
         for (Player p1 : plugin.getServer().getOnlinePlayers()) {
-            if (plugin.isVanished(p1)) {
+            if (plugin.isVanished(p1) && player != p1 && p1 != null) { //`&& p1 != null` shouldn't be necessary. odd.
                 player.hidePlayer(p1);
             }
         }
