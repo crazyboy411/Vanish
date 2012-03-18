@@ -16,6 +16,7 @@ public class Vanish extends JavaPlugin {
     
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new VanishLoginHandler(this), this);
+        getServer().getPluginManager().registerEvents(new VanishPlayerHandler(this), this);
         getCommand("vanish").setExecutor(this);
     }
 
