@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class VanishLoginHandler implements Listener {
     
@@ -27,5 +28,13 @@ public class VanishLoginHandler implements Listener {
             }
         }
     }
-    
+
+    @EventHandler
+    public void handleQuit(PlayerQuitEvent event) {
+        Player player = event.getPlayer();
+        
+        if (plugin.isVanished(player)) {
+            plugin.showPlayer(player);
+        }
+    }
 }
